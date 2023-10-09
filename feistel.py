@@ -35,17 +35,17 @@ while True:
         print("control")
         break
     mid = int((lastIndex - firstIndex / 4))
-    
+
     area = newList[firstIndex:lastIndex]
-    
+
     firstIndexArea = 0
     #lastIndexArea = len(area) - 1
     midArea = int(len(area) / 2)
     left_half = area[firstIndexArea:midArea]
     right_half = area[midArea:len(area)]
-    
+
     for i in range(0, round):
-        
+
         print("left half : " + str(left_half))
         print("right half : " + str(right_half))
         if (i != round - 1):
@@ -56,17 +56,17 @@ while True:
             tmp = right_half
             right_half = left_half
             left_half = tmp
-            
-    
-    
-    
+
+
+
+
     firstIndex = lastIndex
     iteration += 1
     lastIndex = (iteration * 16)
     print("lastlastindex : " + str(lastIndex))
     print("elsecontrol")
     cipher.extend(left_half + right_half)
-    
+
 print(cipher)
 print(len(cipher))
 

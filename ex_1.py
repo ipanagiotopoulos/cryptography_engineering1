@@ -7,8 +7,8 @@ def string_converter(string):
     text_to_convert = [ char for char in  string]
     converted_string = ["0"] * len(text_to_convert)
     for char_index in range(0,len(string), 1):
-        if ord(text_to_convert[char_index]) >=97 and ord(text_to_convert[char_index]) <= 97+26:
-         converted_string[char_index] = chr(ord(text_to_convert[char_index])-26)
+        if ord(text_to_convert[char_index]) >=97 and ord(text_to_convert[char_index]) <= 97+25:
+         converted_string[char_index] = chr(ord(text_to_convert[char_index])-32)
         else:
           converted_string[char_index] = text_to_convert[char_index]
     return converted_string
