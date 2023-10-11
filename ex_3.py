@@ -76,17 +76,6 @@ def printify_four_by_eight_matrice(matrice, rows_number=MATRIX_ROWS_NUMBER):
            print("Iteration", i)
            print("Row: " + str(i) + " Array content:" + str(matrice[i]))
 
-# def matrix_mult_mod_26(matrix1, matrix2):
-#     if len(matrix1[0]) != len(matrix2[0]):
-#         raise ValueError("Can't multiply the two matrices.")
-
-#     mult_matr = [[0] * len(matrix2[0]) for _ in range(len(matrix1))]  # _ is tmp variable
-
-#     for i in range(len(matrix1)):
-#         for j in range(len(matrix2[0])):
-#             for k in range(len(matrix2)):
-#                 mult_matr[i][j] += matrix1[i][k] * matrix2[k][j] % DEFAULT_MODULO
-#     return mult_matr
 
 def print_matrix(matrix):
     for i in range(0, len(matrix)):
