@@ -62,12 +62,11 @@ def signal_handler(sig, frame):
 
 
 def explode_hex_bin_matr(hex_string_array):
-    converted_matrix =  [[0]*MATRIX_COLUMNS_NUMBER]*MATRIX_ROWS_NUMBER
+    converted_matrix =  [[0]*MATRIX_ROWS_NUMBER]*MATRIX_COLUMNS_NUMBER
     counter = 0
-    for char_index in range(1,len(hex_string_array), 2):
-        found_allowed_hex_index_1 = HEX_ALLOWED_CHARS.index(hex_string_array[char_index])
-        found_allowed_hex_index_2 = HEX_ALLOWED_CHARS.index(hex_string_array[char_index -1])
-        converted_matrix[int(char_index/2)] = HEX_ARRAY[found_allowed_hex_index_2]+HEX_ARRAY[found_allowed_hex_index_1]
+    for char_index in range(0,len(hex_string_array), 1):
+        found_allowed_hex_index = HEX_ALLOWED_CHARS.index(hex_string_array[char_index])
+        converted_matrix[char_index] = HEX_ARRAY[found_allowed_hex_index]
         counter += 1
     return converted_matrix
 
@@ -77,17 +76,21 @@ def printify_four_by_eight_matrice(matrice, rows_number=MATRIX_ROWS_NUMBER):
            print("Iteration", i)
            print("Row: " + str(i) + " Array content:" + str(matrice[i]))
 
-def matrix_mult_mod_26(matrix1, matrix2):
-    if len(matrix1) != len(matrix2):
-        raise ValueError("Can't multiply the two matrices.")
+# def matrix_mult_mod_26(matrix1, matrix2):
+#     if len(matrix1[0]) != len(matrix2[0]):
+#         raise ValueError("Can't multiply the two matrices.")
 
-    result = [[0] * len(matrix2[0]) for _ in range(len(matrix1))]  # _ is tmp variable
+#     mult_matr = [[0] * len(matrix2[0]) for _ in range(len(matrix1))]  # _ is tmp variable
 
-    for i in range(len(matrix1)):
-        for j in range(len(matrix2[0])):
-            for k in range(len(matrix2)):
-                result[i][j] += matrix1[i][k] * matrix2[k][j] % MODULO
-    return result
+#     for i in range(len(matrix1)):
+#         for j in range(len(matrix2[0])):
+#             for k in range(len(matrix2)):
+#                 mult_matr[i][j] += matrix1[i][k] * matrix2[k][j] % DEFAULT_MODULO
+#     return mult_matr
+
+def print_matrix(matrix):
+    for i in range(0, len(matrix)):
+        print(matrix[i])
 
 def main():
    hex_input =""
@@ -107,10 +110,13 @@ def main():
         except KeyError:
             print(KeyError.with_traceback)
    result = explode_hex_bin_matr(hex_input_array)
-   print("Hex input array", result)
-   print("English alph matrix", ENGLISH_ALPH_MATRIX)
-   new_matrix = np.dot(hex_input_array, ENGLISH_ALPH_MATRIX)
-   print("Result of multiplication", new_matrix)
+   print("Hex input array")
+   print_matrix(result)
+   print("English alph matrix")
+   print_matrix(ENGLISH_ALPH_MATRIX)
+   print("mult two arrays", np.dot(result, ENGLISH_ALPH_MATRIX))
+   #new_matrix = np.dot(hex_input_array, ENGLISH_ALPH_MATRIX)
+   #print("Result of multiplication", new_matrix)
 
 
 
