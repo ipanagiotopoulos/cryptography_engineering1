@@ -114,7 +114,7 @@ def main():
    print_matrix(result)
    print("English alph matrix")
    print_matrix(ENGLISH_ALPH_MATRIX)
-   print("mult two arrays", np.dot(result, ENGLISH_ALPH_MATRIX))
+   print("mult two arrays MOD 26", np.dot(result, ENGLISH_ALPH_MATRIX)%DEFAULT_MODULO)
    #new_matrix = np.dot(hex_input_array, ENGLISH_ALPH_MATRIX)
    #print("Result of multiplication", new_matrix)
 
