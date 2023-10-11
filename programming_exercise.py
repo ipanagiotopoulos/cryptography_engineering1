@@ -1,6 +1,6 @@
 import copy
 import numpy as np
-hexBitMaterial = 0xf81f89e91556f877f20fde38
+hexBitMaterial = 0xeec326090e7d222c739420f4
 key = "KEYSAREESSENTIAL"
 text = "ITISNOTTOOTRICKY"
 round = 16
@@ -44,12 +44,12 @@ for i in range(len(firstSixteenDigit)):
             index += 1
     mult.append(result)
 
-print(mult)
+#print(mult)
 
 for i in range(0, len(mult)):
     mult[i] = mult[i] + 1
 
-print(mult)
+print("Mult : " + str(mult))
 
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -63,6 +63,8 @@ for i in key:
     newList.append(listAlphabet.index(i))
 
 #"".join(newList)
+
+print("Numerical key : ")
 print(newList)
 
 keyMatrix = []
@@ -77,6 +79,7 @@ print("Key matrix : ")
 for i in keyMatrix:
     print(i)
 
+print()
 following8Digits = bytesMaterial[16:]
 print("following 8")
 
@@ -86,6 +89,9 @@ for i in following8Digits:
 multiplicationMatrix = []
 
 
+
+print("Mult : ")
+print(mult)
 
 
 
@@ -100,9 +106,7 @@ multiplicationMatrix = []
 
 keyMatrixNumpy = np.array(keyMatrix)
 following8DigitsNumpy = np.array(following8Digits)
-print("-------------------------")
-print(keyMatrixNumpy)
-print(following8DigitsNumpy)
+print("\n-------------------------\n")
 
 if len(following8DigitsNumpy[0]) != len(keyMatrixNumpy):
     raise ValueError("Can't multiply the two matrices.")
@@ -116,6 +120,9 @@ for i in range(len(following8DigitsNumpy)):
 
 keyScheduleMatrix = result
 
+print("Key schedule matrix : ")
+for i in keyScheduleMatrix:
+    print(i)
 
 
 #Feistel
@@ -130,12 +137,13 @@ block = []
 for i in text:
     block.append(listAlphabet.index(i))
 
-print("block : ")
+print("\nstring block : ")
 print(block)
+print()
 
 for r in range(round):
     b = r % 4
-    print("i = " + str(i))
+    print("i = " + str(b))
     roundKeyValues = [row[b] for row in keyScheduleMatrix]
 
     leftHalf = block[0:8]
