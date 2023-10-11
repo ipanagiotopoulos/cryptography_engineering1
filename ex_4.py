@@ -5,6 +5,9 @@ import sys
 import time
 import signal
 
+
+PROG_ROUNDS = 4
+
 def signal_handler(sig, frame):
     print('SIGINT signal received....')
     time.sleep(2)
@@ -30,8 +33,6 @@ def pad_string(string_to_pad):
     return padded_string
 
 
-
-
 def main():
 
    while True:
@@ -47,8 +48,6 @@ def main():
         print(len(final_string))
         break
     break
-
-
 
 
 if __name__ == "__main__":

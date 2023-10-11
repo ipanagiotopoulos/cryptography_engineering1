@@ -70,13 +70,6 @@ def explode_hex_bin_matr(hex_string_array):
         counter += 1
     return converted_matrix
 
-
-def printify_four_by_eight_matrice(matrice, rows_number=MATRIX_ROWS_NUMBER):
-     for i in range(0, rows_number, 1):
-           print("Iteration", i)
-           print("Row: " + str(i) + " Array content:" + str(matrice[i]))
-
-
 def print_matrix(matrix):
     for i in range(0, len(matrix)):
         print(matrix[i])
